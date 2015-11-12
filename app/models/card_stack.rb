@@ -37,7 +37,6 @@ class CardStack < ActiveRecord::Base
   private
 
   def can_give_card?(card)
-    debugger
     value[card.to_s] > 0
   end
 end

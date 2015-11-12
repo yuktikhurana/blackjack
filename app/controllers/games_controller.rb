@@ -12,7 +12,6 @@ class GamesController < ApplicationController
   end
 
   def start
-    debugger
     @game = @player.games.new
     if @game.start
       redirect_to game_path(@game)
