@@ -1,0 +1,7 @@
+<div>
+  <% steps_for(game, player).each do |step| %>
+    <div class='cards inline-block'>
+      <%= step.card.capitalize %>
+    </div>
+  <% end %>
+</div>

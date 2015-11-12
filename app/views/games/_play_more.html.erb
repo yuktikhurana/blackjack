@@ -1,0 +1,12 @@
+<div class="inline-block game-steps">
+  DEALER
+  <%= render partial: 'game_steps', locals: { player: false, game: game }  %>
+</div>
+<div class="inline-block game-steps">
+  PLAYER
+  <%= render partial: 'game_steps', locals: { player: true, game: game }  %>
+  <div>
+    <%= button_to 'Pick a card', hit_game_path(game) %>
+    <%= button_to 'Skip', stand_game_path(game) %>
+  </div>
+</div>

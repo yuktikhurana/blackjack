@@ -1,0 +1,33 @@
+.flash {
+  border: 1px;
+}
+
+.flash .notice, .flash .success {
+  color: green;
+}
+
+.flash .error, .flash .alert {
+  color: red;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.game-steps {
+  vertical-align: top;
+  width: 40%;
+  padding: 10px;
+}
+
+.game-stats {
+  text-align: center;
+  padding: 5px;
+}
+
+.cards {
+  border: solid 1px black;
+  margin: 2px;
+  padding: 3px;
+  text-align: center;
+}

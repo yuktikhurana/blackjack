@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<% if @game.over? %>
+  <%= render partial: 'winner_page', locals: { game: @game } %>
+<% else %>
+  <%= render partial: 'play_more', locals: { game: @game }%>
+<% end %>

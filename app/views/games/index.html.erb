@@ -1,0 +1,19 @@
+<h1>Statistics</h1>
+<div class='inline-block game-stats'>
+  <div></div>
+  <div>Dealer</div>
+  <div>Player</div>
+</div>
+
+<% @games.each_with_index do |game, index| %>
+  <div class='inline-block game-stats'>
+    <div><%= "GAME#{ index + 1 }" %></div>
+    <div><%= game.dealer_score %></div>
+    <div><%= game.player_score %></div>
+  </div>
+<% end %>
+
+<div>
+  <%= button_to 'Deal Again', start_games_path %>
+</div>
+
