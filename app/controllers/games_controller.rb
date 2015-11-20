@@ -5,7 +5,10 @@ class GamesController < ApplicationController
   before_action :check_game_over, only: [:hit, :stand]
 
   def index
-    @games = @player.games.all
+    @games = @player.games
+    @busted_games = @games.busted
+    @lost_without_bust_games = @games.lost_without_bust
+    @games = @games.to_a
   end
 
   def show

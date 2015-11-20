@@ -1,4 +1,20 @@
-<h1>Statistics</h1>
+<h1>Casino Daily Statistics</h1>
+<div class='inline-block game-stats'>
+  <div>Date</div>
+  <div>Revenue</div>
+  <div>Profit</div>
+</div>
+
+<% Game.day_stats.each do |day| %>
+  <div class='inline-block game-stats'>
+    <div><%= day.date %></div>
+    <div><%= day.revenue %></div>
+    <div><%= day.profit %></div>
+  </div>
+<% end %>
+
+
+<h1>Player Statistics</h1>
 <div class='inline-block game-stats'>
   <div></div>
   <div>Dealer</div>
@@ -10,6 +26,26 @@
     <div><%= "GAME#{ index + 1 }" %></div>
     <div><%= game.dealer_score %></div>
     <div><%= game.player_score %></div>
+  </div>
+<% end %>
+
+<h3>Score Analysis</h3>
+<div>
+  <div>Games Lost with score 21+ : <%= @busted_games.count %></div>
+  <div>Games Lost with score 17+ : <%= @lost_without_bust_games.count %></div>
+  <div>Average Score: <%= @player.average_score %></div>
+</div>
+
+<h3>Lucky Cards</h3>
+<div class='inline-block game-stats'>
+  <div>Card</div>
+  <div>Frequency</div>
+</div>
+
+<% @player.lucky_cards.each do |card_frequency_pair| %>
+  <div class='inline-block game-stats'>
+    <div><%= card_frequency_pair.card.capitalize %></div>
+    <div><%= card_frequency_pair.frequency %></div>
   </div>
 <% end %>
 

@@ -5,6 +5,18 @@ class Game < ActiveRecord::Base
 
   validates :player, presence: true
 
+  scope :with_status, ->(status) { where(won: status) }
+  scope :not_tie, -> { where.not("player_score = dealer_score") }
+  scope :lost, -> { not_tie.with_status(false) }
+  scope :won, -> { not_tie.with_status(true) }
+  scope :busted, -> { lost.where("player_score > ?", 21) }
+  scope :lost_without_bust, -> { lost.where(player_score: (17...21)) }
+
+  def self.day_stats
+    Game.select("DATE(created_at) date, SUM(IF(won=0, bet, 0)) revenue, (SUM(IF(won=0, bet, 0)) - SUM(IF(won=1, bet, 0))) profit")
+        .group("date(created_at)")
+  end
+
   def start
     #give 2 cards to player, give 1 card to dealer
     initialize_stack
