@@ -1,0 +1,14 @@
+web:
+  build: .
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  # volumes:
+  #   - ./Users/Yukti Khurana/Documents/Projects/blackjack:./app
+db:
+  image: mysql:5.7
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+  # volumes:
+  #   - ./Users/Yukti Khurana/Documents/Projects/blackjack/db:./db

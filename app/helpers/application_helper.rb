@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def render_flash(flash=flash)
+  def render_flash(flash=[])
     flash_view = "<div class='flash' id='flash'>"
     flash.collect do |type, message|
         flash_view += "<div class ='message #{ type }'>"
